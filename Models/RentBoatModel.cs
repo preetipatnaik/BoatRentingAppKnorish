@@ -7,19 +7,14 @@ using System.Threading.Tasks;
 
 namespace BoatRentingAppKnorish.Models
 {
-    public class Boat
+    public class RentBoatModel
     {
-        public int Id { get; set; }
-
         [Required]
-        [DisplayName("Boat Name")]
-        public string BoatName { get; set; }
-        [Required]
-        [DisplayName("Hourly Rate")]
-        public int HourlyRate { get; set; }
-
+        [DisplayName("Boat Number")]
         public string BoatNumber { get; set; }
+
+        [Required]
+        [DisplayName("Customer Name")]
         public string CustomerName { get; set; }
-     
     }
 }

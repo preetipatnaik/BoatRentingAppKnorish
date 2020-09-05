@@ -1,0 +1,64 @@
+﻿@model IEnumerable<BoatRentingAppKnorish.Models.Boat>
+
+@{
+    ViewData["Title"] = "List Of Boats";
+}
+
+<h1>List Of Boats</h1>
+
+<p>
+    <a asp-action="Create">Register Boat</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a asp-action="RentBoat">Rent Boat</a>
+</p>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+          
+            <th>
+                @Html.DisplayNameFor(model => model.BoatName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HourlyRate)
+            </th>
+            <th>
+                Boat Number
+            </th>
+            <th>
+                Customer Name
+            </th>
+
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.BoatName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HourlyRate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BoatNumber)
+            </td>
+
+            @if (item.CustomerName == null || item.CustomerName == "")
+            {
+                <td>
+                    No Customer Assigned
+                </td>
+            }
+            else
+            {
+                <td>
+                    @Html.DisplayFor(modelItem => item.CustomerName)
+                </td>
+            }
+            
+
+
+        </tr>
+}
+    </tbody>
+</table>
